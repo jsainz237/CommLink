@@ -26,10 +26,12 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :instructor %>
-    <%= form.text_area :instructor %>
-  </div>
+  <%= hidden_field_tag "course[instructor_ids][]", nil %>
+    <% Instructor.all.each do |instructor| %>
+      <%= check_box_tag "course[instructor_ids][]", instructor.id, @course.instructor_ids.include?(instructor.id), id: dom_id(instructor) %>
+      <%= label_tag dom_id(instructor), instructor.name %><br>
+  <% end %>
+
 
   <div class="actions">
     <%= form.submit %>
