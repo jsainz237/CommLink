@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :ratings
   root to: 'landing_page#index'
   resources :instructors
