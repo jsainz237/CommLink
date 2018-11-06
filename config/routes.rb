@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ratings
   root to: 'landing_page#index'
   resources :instructors
   resources :courses
