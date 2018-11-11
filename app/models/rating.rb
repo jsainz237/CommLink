@@ -1,3 +1,7 @@
 class Rating < ApplicationRecord
-    belongs_to :courses
+    belongs_to :course
+  
+   def average_rating
+    self.class.average(:rating)
+  end
 end

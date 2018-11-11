@@ -22,7 +22,23 @@
   <% end %>
 </p>
 
-<%= link_to 'Add Review', '/ratings#index' %>
+<h1>
+  Reviews: 
+</h1>
+
+<h2>
+  Average Rating: <%= Rating.average(:score) %>
+</h2>
+  <p>
+<% @ratings.each do |rating| %>
+
+    Score: <%= rating.score %>
+    <br>
+    Comment: <%= rating.comment %>
+</p>
+<% end %>
+
+<%= link_to 'Add Review', new_course_ratings_path(@course) %>
 <br>
 <br>
 

@@ -1,5 +1,6 @@
-class RatingsController < ApplicationController
-  before_action :set_rating, only: [:show, :edit, :update, :destroy]
+class Courses::RatingsController < ApplicationController
+  	before_action :set_rating, only: [:show, :edit, :update, :destroy]
+	before_action :set_course, only: [:show, :new, :edit, :create, :update, :destroy]
 
   # GET /ratings
   # GET /ratings.json
@@ -24,12 +25,13 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.json
   def create
-    @rating = Rating.new(rating_params)
-
+     @rating = Rating.new(rating_params)
+     @rating.course_id = @course.id
+	
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
-        format.json { render :show, status: :created, location: @rating }
+        format.html { redirect_to course_url(@rating.course_id), notice: 'Rating was successfully created.' }
+        format.json { render :show, status: :created, location: course_url(@rating.course_id) }
       else
         format.html { render :new }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
@@ -63,12 +65,16 @@ class RatingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_rating
+def set_rating
       @rating = Rating.find(params[:id])
-    end
+
+end 
+  def set_course 
+	@course = Course.find(params[:course_id])
+end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:score, :comment, :course_id)
+      params.require(:rating).permit(:score, :comment, :course_id, {course_ids: []})
     end
 end
