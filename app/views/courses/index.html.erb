@@ -20,9 +20,11 @@
         <td><%= course.number %></td>
         <td><%= course.description %></td>
         <td>
+          <ul>
           <% for @instructor in course.instructors %>
-            <%= @instructor.name %><br>
+              <li><%= @instructor.name %></li>
           <% end  %>
+          </ul>
         </td>
         <td><%= link_to 'Show', course %></td>
         <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>

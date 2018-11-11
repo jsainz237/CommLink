@@ -38,9 +38,15 @@
 </p>
 <% end %>
 
-<%= link_to 'Add Review', new_course_ratings_path(@course) %>
+<% if user_signed_in? %>
+  <%= link_to 'Add Review', new_course_ratings_path(@course) %>
+<% else %>
+  <p>To leave a review, please <%= link_to "Sign In", new_user_session_path %></p>
+<% end %>
 <br>
 <br>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
+<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+  <%= link_to 'Edit', edit_course_path(@course) %> |
+<% end %>
 <%= link_to 'Back', courses_path %>
