@@ -22,5 +22,31 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
+<h1>
+  Reviews: 
+</h1>
+
+<h2>
+  Average Rating: <%= Rating.average(:score) %>
+</h2>
+  <p>
+<% @ratings.each do |rating| %>
+
+    Score: <%= rating.score %>
+    <br>
+    Comment: <%= rating.comment %>
+</p>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Add Review', new_course_ratings_path(@course) %>
+<% else %>
+  <p>To leave a review, please <%= link_to "Sign In", new_user_session_path %></p>
+<% end %>
+<br>
+<br>
+
+<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+  <%= link_to 'Edit', edit_course_path(@course) %> |
+<% end %>
 <%= link_to 'Back', courses_path %>
