@@ -21,12 +21,14 @@
         <td><%= course.description %></td>
         <td>
           <% for @instructor in course.instructors %>
-            <%= @instructor.name %>
+            <%= @instructor.name %><br>
           <% end  %>
         </td>
         <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+          <td><%= link_to 'Edit', edit_course_path(course) %></td>
+          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +36,6 @@
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+  <%= link_to 'New Course', new_course_path %>
+<% end %>
