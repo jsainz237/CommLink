@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+  
 <p>
   <strong>Name:</strong>
   <%= @course.name %>
@@ -21,6 +21,6 @@
     <p><%= @instructor.name %></p>
   <% end %>
 </p>
-
+</div>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
