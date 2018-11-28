@@ -1,10 +1,31 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
   # GET /courses
   # GET /courses.json
   def index
     @courses = Course.all.order(:number)
+  end
+
+  def upvote
+    if user_signed_in?
+      @course = Course.find(params[:id])
+      @course.upvote_by current_user
+      redirect_back fallback_location: root_path
+    else
+      redirect_to new_user_session_path, alert: "You'll need to sign in to vote!"
+    end
+  end
+
+  def downvote
+    if user_signed_in?
+
+      @course = Course.find(params[:id])
+      @course.downvote_by current_user
+      redirect_back fallback_location: root_path
+    else
+      redirect_to new_user_session_path, alert: "You'll need to sign in to vote!"
+    end
   end
 
   # GET /courses/1

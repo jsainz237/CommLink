@@ -13,6 +13,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+gem 'acts_as_votable', '~> 0.12.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

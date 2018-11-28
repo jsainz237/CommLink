@@ -15,7 +15,7 @@
     <% @instructors.each do |instructor| %>
       <tr>
         <td><%= instructor.name %></td>
-        <td><%= instructor.degree %></td>
+        <td><%= instructor.education %></td>
         <td><%= link_to 'Show', instructor %></td>
         <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
           <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>

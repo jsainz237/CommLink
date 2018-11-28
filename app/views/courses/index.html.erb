@@ -27,7 +27,7 @@
           <% end  %>
           </ul>
         </td>
-        <td><%= Rating.average(:score) %></td>
+        <td><%= course.ratings.average(:score) %></td>
         <td><%= link_to 'Show', course %></td>
         <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
           <td><%= link_to 'Edit', edit_course_path(course) %></td>
