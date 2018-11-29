@@ -1,15 +1,38 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.all.order(:number)
+  end
+
+  def upvote
+    if user_signed_in?
+      @course = Course.find(params[:id])
+      @course.upvote_by current_user
+      redirect_back fallback_location: root_path
+    else
+      redirect_to new_user_session_path, alert: "You'll need to sign in to vote!"
+    end
+  end
+
+  def downvote
+    if user_signed_in?
+
+      @course = Course.find(params[:id])
+      @course.downvote_by current_user
+      redirect_back fallback_location: root_path
+    else
+      redirect_to new_user_session_path, alert: "You'll need to sign in to vote!"
+    end
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @course = Course.find(params[:id])
+    @ratings = @course.ratings
   end
 
   # GET /courses/new
@@ -69,6 +92,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :number, :description, {instructor_ids: []})
+      params.require(:course).permit(:name, :rating, :number, :description, {instructor_ids: []})
     end
 end

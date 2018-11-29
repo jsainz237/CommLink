@@ -26,4 +26,9 @@
 
 <br>
 
-<%= link_to 'New Rating', new_rating_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Rating', new_rating_path %>
+<% else %>
+  <p>Please <span><%= link_to "sign in", new_user_session_path %></span> to leave a review</p>
+<% end %>
+
