@@ -3,12 +3,22 @@
 
   <div class="field">
     <%= form.label :score %>
-    <%= form.number_field :score %>
+    <%= form.number_field :score, min: 1, max: 5 %>
   </div>
 
   <div class="field">
     <%= form.label :comment %>
     <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment2 %>
+    <%= form.text_area :comment2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment3 %>
+    <%= form.text_area :comment3 %>
   </div>
 
   <div class="actions">
