@@ -11,8 +11,13 @@
         <p> <% for @instructor in course.instructors %>
             <%= @instructor.name %>
           <% end  %> </p>
-        <p><%= link_to 'Show', course %> <%= link_to 'Edit', edit_course_path(course) %><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
-         </p>
+        <div style="display: inline-flex">
+          <p><%= link_to 'Show', course %></p>
+          <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+            <p><%= link_to 'Edit', edit_course_path(course) %></p>
+            <p><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% end %>
+        </div>
   </div>
   </div>
    <% end %>
@@ -20,4 +25,6 @@
   </div>
 <br>
 
-<%= link_to image_tag("add-icon.png"), new_course_path %>
+<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+  <%= link_to image_tag("add-icon.png"), new_course_path %>
+<% end %>
