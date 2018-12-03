@@ -15,6 +15,9 @@
  */
 
 /* The side navigation menu */
+body {
+   background-color: #363636;
+}
 .sidebar {
   margin: 0;
   padding: 0;
@@ -23,6 +26,22 @@
   position: fixed;
   height: 100%;
   overflow: auto;
+}
+
+#mySidebar {
+  position: absolute!important;
+  top: 0!important;
+}
+
+#closeButton {
+  color: black!important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* Sidebar links */
@@ -43,6 +62,18 @@
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
+}
+
+.navbar {
+  position: absolute;
+  height: 100%;
+  width: 150px;
+  left: 0;
+  background-color: black;
+
+  ul {
+    margin: 0;
+  }
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
@@ -69,4 +100,20 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+h2{
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 40px;
+  color: #FFFFFF;
+}
+h3{
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 25px;
+  color: #FFFFFF;
 }

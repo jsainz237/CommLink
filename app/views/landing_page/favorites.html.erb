@@ -20,6 +20,8 @@
       <td><%= course.name %></td>
       <td><%= course.number %></td>
       <td><%= course.description %></td>
+      <td></td>
+      <td><%= course.ratings.average(:score).round(1) %></td>
       <td>
         <ul>
           <% for @instructor in course.instructors %>
@@ -27,7 +29,6 @@
           <% end  %>
         </ul>
       </td>
-      <td><%= Rating.average(:score) %></td>
       <td><%= link_to 'Show', course %></td>
       <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>

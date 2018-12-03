@@ -1,24 +1,26 @@
-  <div id="container">
-    <div id="tagline1">
-      Discover Courses. Write Reviews.
+  <div id="landingPageContainer">
+    <div id="container">
+      <div id="tagline1">
+        Discover Courses. Write Reviews.
+      </div>
     </div>
-  </div>
 
-  <div id="container">
-    <div id="logo">
-      <mark class="white">Comm</mark><mark class="green">Link</mark>
+    <div id="container">
+      <div id="logo">
+        <mark class="white">Comm</mark><mark class="green">Link</mark>
+      </div>
     </div>
-  </div>
 
-  <div id="container">
-    <div id="tagline2">
-      Enhancing the UNT Tech Comm Experience.
+    <div id="container">
+      <div id="tagline2">
+        Enhancing the UNT Tech Comm Experience.
+      </div>
     </div>
-  </div>
 
-  <div class="container_button">
-    <div><a href="#" class="button">Sign Up</a></div>
-    <div><h2>or</h2></div>
-    <div><a href="#" class="button">Sign In</a></div>
+    <div class="container_button">
+      <div><%= link_to 'sign in', new_user_session_path %></div>
+      <h2>or</h2>
+      <div><%= link_to 'sign up', new_user_registration_path %></div>
+    </div>
   </div>
 

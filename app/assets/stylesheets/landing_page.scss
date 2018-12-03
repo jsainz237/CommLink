@@ -1,5 +1,5 @@
 // Place all the styles related to the LandingPage controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // body {
@@ -11,11 +11,16 @@
 /* Title */
 body {
   background-image: url('computer-bw.jpg');
-  background-size: cover;
+  background-size: cover;;
 }
 mark.white{
   color: white;
   background:none;
+}
+
+#landingPageContainer {
+  margin: 10%;
+  align-content: center;
 }
 
 mark.green{
@@ -78,11 +83,17 @@ mark.green{
   display: flex;
   justify-content: center;
   align-items:center;
+
 }
 .container_button > div {
-  width: 150px;
+  width: 161px;
+  height: 46px;
   margin: 10px;
   text-align: center;
   font-size: 24px;
   color: white;
+  background-color: #4CAF50;
+  letter-spacing: 0.05em;
+  font-family: Source Sans Pro;
+  border-radius: 10px;
 }
