@@ -25,6 +25,22 @@
   overflow: auto;
 }
 
+#mySidebar {
+  position: absolute!important;
+  top: 0!important;
+}
+
+#closeButton {
+  color: black!important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 /* Sidebar links */
 .sidebar a {
   display: block;
@@ -43,6 +59,18 @@
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
+}
+
+.navbar {
+  position: absolute;
+  height: 100%;
+  width: 150px;
+  left: 0;
+  background-color: black;
+
+  ul {
+    margin: 0;
+  }
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
