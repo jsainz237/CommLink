@@ -28,7 +28,7 @@
   <h2>No ratings yet</h2>
   <h3>Be the first to leave a review</h3>
 <% else %>
-  <h3>Average Rating: <%= @course.ratings.average(:score) %></h3>
+  <h2>Average Rating: <%= @course.ratings.average(:score).round(1) %></h2>
 <% end %>
   <h3>
     <% @course.ratings.each do |rating| %>
@@ -53,7 +53,7 @@
       <%= @course.get_upvotes.size %><!--replace this with an icon later-->
     <% end %>
 
-<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+<% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_course_path(@course) %> |
 <% end %>
 <%= link_to 'Back', courses_path %>

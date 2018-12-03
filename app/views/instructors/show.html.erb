@@ -10,7 +10,7 @@
   <%= @instructor.degree %>
 </p>
 
-<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+<% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <% end %>
 <%= link_to 'Back', instructors_path %>

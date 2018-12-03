@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Instructors</h1>
- 
-<div class="flex-container">  
-  
+
+<div class="flex-container">    
    <% @instructors.each do |instructor| %>
       <div class="flex-item">
       <%=image_tag("Dr.Lam.jpg", alt: "Example Image")%>
@@ -20,4 +19,6 @@
 
 <br>
 
+<% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'New Instructor', new_instructor_path %>
+<% end %>
