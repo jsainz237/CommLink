@@ -13,7 +13,7 @@
           <% end  %> </p>
         <div style="display: inline-flex">
           <p><%= link_to 'Show', course %></p>
-          <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+          <% if user_signed_in? && current_user.try(:admin) %>
             <p><%= link_to 'Edit', edit_course_path(course) %></p>
             <p><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></p>
           <% end %>
@@ -25,6 +25,6 @@
   </div>
 <br>
 
-<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+<% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to image_tag("add-icon.png"), new_course_path %>
 <% end %>
