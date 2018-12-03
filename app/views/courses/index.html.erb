@@ -1,45 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Number</th>
-      <th>Description</th>
-      <th>Instructor</th>
-      <th>Course Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container-fluid">
+<div class="row">
     <% @courses.each do |course| %>
-      <tr>
-        <td><%= course.name %></td>
-        <td><%= course.number %></td>
-        <td><%= course.description %></td>
-        <td>
-          <ul>
-          <% for @instructor in course.instructors %>
-              <li><%= @instructor.name %></li>
-          <% end  %>
-          </ul>
-        </td>
-        <td><%= Rating.average(:score) %></td>
-        <td><%= link_to 'Show', course %></td>
-        <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
-          <td><%= link_to 'Edit', edit_course_path(course) %></td>
-          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  <div class="col-sm-12">
+       <div class="course-list-box">
+       <h1><%= course.number %> - <%= course.name %></h1>
+        <p><%= course.description %></p>
+        <p><%= course.ratings.average(:score) %></p>
+        <p> <% for @instructor in course.instructors %>
+            <%= @instructor.name %>
+          <% end  %> </p>
+        <div style="display: inline-flex">
+          <p><%= link_to 'Show', course %></p>
+          <% if user_signed_in? && current_user.try(:admin) %>
+            <p><%= link_to 'Edit', edit_course_path(course) %></p>
+            <p><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% end %>
+        </div>
+  </div>
+  </div>
+   <% end %>
+  </div>
+  </div>
 <br>
 
-<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
-  <%= link_to 'New Course', new_course_path %>
+<% if user_signed_in? && current_user.try(:admin) %>
+  <%= link_to image_tag("add-icon.png"), new_course_path %>
 <% end %>

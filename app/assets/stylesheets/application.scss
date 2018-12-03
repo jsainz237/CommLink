@@ -1,10 +1,23 @@
-// Place all the styles related to the Courses controller here.
-// They will automatically be included in application.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  background-color: #363636;
-}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
 /* The side navigation menu */
+body {
+   background-color: #363636;
+}
 .sidebar {
   margin: 0;
   padding: 0;
@@ -13,6 +26,22 @@ body {
   position: fixed;
   height: 100%;
   overflow: auto;
+}
+
+#mySidebar {
+  position: absolute!important;
+  top: 0!important;
+}
+
+#closeButton {
+  color: black!important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* Sidebar links */
@@ -33,6 +62,18 @@ body {
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
+}
+
+.navbar {
+  position: absolute;
+  height: 100%;
+  width: 150px;
+  left: 0;
+  background-color: black;
+
+  ul {
+    margin: 0;
+  }
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
@@ -60,42 +101,19 @@ div.content {
     float: none;
   }
 }
-
-.course-list-box {
-    background: rgba(0, 0, 0, 0.75);
-    border-radius: 10px;
-    padding: 5px; 
-    width: 100%;
-    height: 15%;
-    margin-bottom:20px;
-}
-
-.course-list-box h1{
+h2{
   font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
   line-height: normal;
-  font-size: 36px;
-  margin-left: 10px;
-  color: #4CAF50;
-}
-
-.course-list-box p{
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 30px;
-  color: #FFFFFF;
-  margin-left: 10px;
-}
-
-h1{
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 72px;
+  font-size: 40px;
   color: #FFFFFF;
 }
-
+h3{
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 25px;
+  color: #FFFFFF;
+}

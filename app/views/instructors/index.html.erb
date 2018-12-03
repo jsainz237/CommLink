@@ -2,32 +2,23 @@
 
 <h1>Instructors</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Degree</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @instructors.each do |instructor| %>
-      <tr>
-        <td><%= instructor.name %></td>
-        <td><%= instructor.degree %></td>
-        <td><%= link_to 'Show', instructor %></td>
-        <% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
-          <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
-          <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="flex-container">    
+   <% @instructors.each do |instructor| %>
+      <div class="flex-item">
+      <%=image_tag("Dr.Lam.jpg", alt: "Example Image")%>
+    <div class="info-container">
+        <h1><%= instructor.name %></h1>
+        <p><%= instructor.degree %></p>
+        <p><%= link_to 'Show', instructor %>
+          <%= link_to 'Edit', edit_instructor_path(instructor) %>
+          <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+  </div>
+      <% end %>
+  </div>
 
 <br>
 
-<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+<% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'New Instructor', new_instructor_path %>
 <% end %>

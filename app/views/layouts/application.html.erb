@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
     <title>CommLink</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <nav>
-        <ul>
+  <body style="color: white"> <!--temp styling-->
+      <div style="position: absolute; top: 20px; right: 20px">
         <% if user_signed_in? %>
-          <li><span>Signed in as <%= link_to current_user.email, current_user %> | </span><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-          
+          <span>Signed in as <%= link_to current_user.email, current_user %> | </span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+
         <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Register", new_user_registration_path %></li>
+          <%= link_to "Sign In", new_user_session_path %>
+          <%= link_to "Register", new_user_registration_path %>
         <% end %>
-        </ul>
-      </nav>
+      </div>
 
-      <nav>
-        <ul>
-          <li><%= link_to "Landing Page", '/' %></li>
-          <li><%= link_to "Instructors", '/instructors#index' %></li>
-          <li><%= link_to "Courses", '/courses#index' %></li>
-        </ul>
-      </nav>
-    </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left" style="display:none" id="mySidebar">
+        <button id="closeButton" onclick="w3_close()" class="w3-bar-item w3-button w3-large">Close &times;</button><br>
+        <%= link_to "Favorites", '/landing_page/favorites' %><br>
+        <%= link_to "Courses", '/courses#index' %><br>
+        <%= link_to "Instructors", '/instructors#index' %>
+      </div>
 
+    <div id="toggleButton" style="position: absolute; top: 20px; left: 20px">
+      <button class="w3-button w3-transparent w3-xxlarge" onclick="w3_open()">☰</button>
+    </div>
 
+    <div style="margin: 85px 30px">
+      <%= yield %>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            //document.getElementById("toggleButton").style.margin = "0";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            //document.getElementById("toggleButton").style.margin = "20px";
+        }
+    </script>
   </body>
 </html>

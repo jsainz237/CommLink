@@ -1,52 +1,59 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+  
+<h3>
   <strong>Name:</strong>
   <%= @course.name %>
-</p>
+</h3>
 
-<p>
+<h3>
   <strong>Number:</strong>
   <%= @course.number %>
-</p>
+</h3>
 
-<p>
+<h3>
   <strong>Description:</strong>
   <%= @course.description %>
-</p>
+</h3>
 
-<p>
+<h3>
   <strong>Instructor:</strong>
   <% for @instructor in @course.instructors %>
     <p><%= @instructor.name %></p>
   <% end %>
-</p>
+</h3>
 
-<h1>
-  Reviews: 
-</h1>
+<h2>Reviews:</h2>
 
-<h2>
-  Average Rating: <%= Rating.average(:score) %>
-</h2>
-  <p>
-<% @ratings.each do |rating| %>
+<% if @course.ratings.size === 0 %>
+  <h2>No ratings yet</h2>
+  <h3>Be the first to leave a review</h3>
+<% else %>
+  <h2>Average Rating: <%= @course.ratings.average(:score).round(1) %></h2>
+<% end %>
+  <h3>
+    <% @course.ratings.each do |rating| %>
 
     Score: <%= rating.score %>
+  </h3>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Add Review', new_course_ratings_path(@course) %>
+    <% else %>
+      <p>
+        To leave a review, please <%= link_to 'sign in', new_user_session_path %> or
+        <%= link_to 'create an account', new_user_registration_path %>.
+      </p>
+    <% end %>
+
     <br>
-    Comment: <%= rating.comment %>
-</p>
-<% end %>
 
-<% if user_signed_in? %>
-  <%= link_to 'Add Review', new_course_ratings_path(@course) %>
-<% else %>
-  <p>To leave a review, please <%= link_to "Sign In", new_user_session_path %></p>
-<% end %>
-<br>
-<br>
+    <%= link_to like_course_path(@course), method: :put do %>
+      <i class="fas fa-thumbs-up"></i>
+      <%= @course.get_upvotes.size %><!--replace this with an icon later-->
+    <% end %>
 
-<% if user_signed_in? && current_user.email === 'commlinkadmin@fakeemail.com' %>
+<% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_course_path(@course) %> |
 <% end %>
 <%= link_to 'Back', courses_path %>
