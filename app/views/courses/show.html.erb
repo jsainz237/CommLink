@@ -1,40 +1,40 @@
 <p id="notice"><%= notice %></p>
   
-<p>
+<h3>
   <strong>Name:</strong>
   <%= @course.name %>
-</p>
+</h3>
 
-<p>
+<h3>
   <strong>Number:</strong>
   <%= @course.number %>
-</p>
+</h3>
 
-<p>
+<h3>
   <strong>Description:</strong>
   <%= @course.description %>
-</p>
+</h3>
 
-<p>
+<h3>
   <strong>Instructor:</strong>
   <% for @instructor in @course.instructors %>
     <p><%= @instructor.name %></p>
   <% end %>
-</p>
+</h3>
 
-<h1>Reviews:</h1>
+<h2>Reviews:</h2>
 
 <% if @course.ratings.size === 0 %>
   <h2>No ratings yet</h2>
   <h3>Be the first to leave a review</h3>
 <% else %>
-  <h2>Average Rating: <%= @course.ratings.average(:score) %></h2>
+  <h3>Average Rating: <%= @course.ratings.average(:score) %></h3>
 <% end %>
-  <p>
+  <h3>
     <% @course.ratings.each do |rating| %>
 
     Score: <%= rating.score %>
-  </p>
+  </h3>
     <% end %>
 
     <% if user_signed_in? %>

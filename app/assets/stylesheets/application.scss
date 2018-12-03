@@ -15,6 +15,9 @@
  */
 
 /* The side navigation menu */
+body {
+   background-color: #363636;
+}
 .sidebar {
   margin: 0;
   padding: 0;
@@ -97,4 +100,20 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+h2{
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 40px;
+  color: #FFFFFF;
+}
+h3{
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 25px;
+  color: #FFFFFF;
 }
