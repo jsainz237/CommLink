@@ -18,9 +18,15 @@
     </div>
 
     <div class="container_button">
-      <div><%= link_to 'sign in', new_user_session_path %></div>
-      <h2>or</h2>
-      <div><%= link_to 'sign up', new_user_registration_path %></div>
+      <% if user_signed_in? %>
+        <div><%= link_to 'Courses', '/courses#index' %></div>
+        <h2>or</h2>
+        <div><%= link_to 'Instructors', '/instructors#index' %></div>
+      <% else %>
+        <div><%= link_to 'sign in', new_user_session_path %></div>
+        <h2>or</h2>
+        <div><%= link_to 'sign up', new_user_registration_path %></div>
+      <% end %>
     </div>
   </div>
 
