@@ -10,6 +10,31 @@
   <%= @instructor.degree %>
 </p>
 
+<p>
+  <strong>Title:</strong>
+  <%= @instructor.title %>
+</p>
+
+<p>
+  <strong>Education:</strong>
+  <%= @instructor.education %>
+</p>
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @instructor.specialty %>
+</p>
+
+<p>
+  <strong>Office:</strong>
+  <%= @instructor.office %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @instructor.availability %>
+</p>
+
 <% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <% end %>

@@ -8,7 +8,11 @@
        <div class="course-list-box">
        <h1><%= course.number %> - <%= course.name %></h1>
         <p><%= course.description %></p>
-        <p><%= course.ratings.average(:score) %></p>
+        <% if course.ratings.size != 0 %>
+          <p><%= course.ratings.average(:score).round(1) %></p>
+        <% else %>
+           <p>No Reviews Yet</p>
+        <% end %>
         <p> <% for @instructor in course.instructors %>
             <%= @instructor.name %>
           <% end  %> </p>
