@@ -5,13 +5,20 @@
 <div class="flex-container">    
    <% @instructors.each do |instructor| %>
       <div class="flex-item">
-      <%=image_tag("Dr.Lam.jpg", alt: "Example Image")%>
-    <div class="info-container">
+      <%=image_tag("#{instructor.imageTitle}", alt: "No Image Provided")%>
+      <div class="info-container">
         <h1><%= instructor.name %></h1>
-        <p><%= instructor.degree %></p>
-        <p><%= link_to 'Show', instructor %>
-          <%= link_to 'Edit', edit_instructor_path(instructor) %>
+        <p><%= instructor.title %></p>
+        <p><%= instructor.education %></p>
+        <p><%= instructor.specialty %></p>
+        <p><%= instructor.office %></p>
+        <p><%= instructor.availability %></p>
+
+        <p><%= link_to 'Show', instructor %></p>
+      <% if user_signed_in? && current_user.try(:admin) %>
+        <p><%= link_to 'Edit', edit_instructor_path(instructor) %>
           <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
   </div>
   </div>
       <% end %>
