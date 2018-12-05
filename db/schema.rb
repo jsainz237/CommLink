@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_002021) do
+ActiveRecord::Schema.define(version: 2018_12_05_031412) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_002021) do
     t.string "title"
     t.string "imageTitle"
     t.text "specialty"
+    t.string "image"
   end
 
   create_table "ratings", force: :cascade do |t|

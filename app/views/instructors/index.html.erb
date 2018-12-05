@@ -5,7 +5,7 @@
 <div class="flex-container">    
    <% @instructors.each do |instructor| %>
       <div class="flex-item">
-      <%=image_tag("#{instructor.imageTitle}", alt: "No Image Provided")%>
+      <%=image_tag instructor.image.url, class: "instructor-show" if instructor.image? %>
       <div class="info-container">
         <h1><%= instructor.name %></h1>
         <p><%= instructor.title %></p>

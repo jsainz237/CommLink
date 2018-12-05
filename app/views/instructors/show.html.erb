@@ -35,6 +35,10 @@
   <%= @instructor.availability %>
 </p>
 
+<% if @instructor.image? %>
+<%= image_tag @instructor.image.url, class: "instructor-show" %>
+<% end %>
+
 <% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <% end %>
