@@ -17,7 +17,7 @@
             <%= @instructor.name %>
           <% end  %> </p>
         <div style="display: inline-flex">
-          <p><%= link_to 'Show', course %></p>
+          <p><%= link_to 'Show', course, class: "show-link"%></p>
           <% if user_signed_in? && current_user.try(:admin) %>
             <p><%= link_to 'Edit', edit_course_path(course) %></p>
             <p><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></p>

@@ -30,12 +30,9 @@
 <% else %>
   <h2>Average Rating: <%= @course.ratings.average(:score).round(1) %></h2>
 <% end %>
-  <h3>
-    <% @course.ratings.each do |rating| %>
-
-    Score: <%= rating.score %>
-  </h3>
-    <% end %>
+<% @course.ratings.each do |rating| %>
+  <h3>Score: <%= rating.score %></h3>
+<% end %>
 
     <% if user_signed_in? %>
       <%= link_to 'Add Review', new_course_ratings_path(@course) %>
