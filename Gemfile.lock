@@ -238,7 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_votable (~> 0.12.0)
+  acts_as_votable
   bootsnap (>= 1.1.0)
   capybara (>= 2.15)
   carrierwave (~> 1.0)
