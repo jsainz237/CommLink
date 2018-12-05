@@ -4,6 +4,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  acts_as_voter
 
 end
