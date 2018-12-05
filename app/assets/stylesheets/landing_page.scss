@@ -10,8 +10,7 @@
 // }
 /* Title */
 body {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-  background-blend-mode: multiply,multiply;
+  background-image: linear-gradient(to right top, #363535, #3b3a3a, #3f3e3f, #444344, #484849, #474747, #454546, #444444, #3c3c3c, #343434, #2c2c2c, #252525);
 }
 mark.white{
   color: white;
