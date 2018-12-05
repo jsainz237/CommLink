@@ -19,9 +19,9 @@
 
     <div class="container_button">
       <% if user_signed_in? %>
-        <div><%= link_to 'Courses', '/courses#index' %></div>
+        <button><%= link_to 'Courses', '/courses#index' %></button>
         <h2>or</h2>
-        <div><%= link_to 'Instructors', '/instructors#index' %></div>
+        <button><%= link_to 'Instructors', '/instructors#index' %></button>
       <% else %>
         <button><%= link_to 'Sign In', new_user_session_path %></button>
         <h2>or</h2>

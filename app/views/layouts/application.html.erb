@@ -13,7 +13,7 @@
   </head>
 
   <body style="color: white"> <!--temp styling-->
-      <div style="position: absolute; top: 20px; right: 20px">
+      <div class="user-options" style="position: absolute; top: 20px; right: 20px">
         <% if user_signed_in? %>
           <span>Signed in as <%= link_to current_user.email, current_user %> | </span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 
@@ -23,17 +23,19 @@
         <% end %>
       </div>
 
-      <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left" style="display:none" id="mySidebar">
-        <button id="closeButton" onclick="w3_close()" class="w3-bar-item w3-button w3-large">Close &times;</button><br>
-        <%= link_to "Favorites", '/landing_page/favorites' %><br>
-        <%= link_to "Courses", '/courses#index' %><br>
-        <%= link_to "Instructors", '/instructors#index' %><br>
-        <br>
-        <%= link_to "About", '/landing_page/about' %>
+      <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left mySidebar" style="display:none" id="mySidebar">
+        <div>
+          <button id="closeButton" onclick="w3_close()" class="w3-bar-item w3-button w3-large">Close &times;</button><br>
+          <%= link_to "Favorites", '/landing_page/favorites' %><br>
+          <%= link_to "Courses", '/courses#index' %><br>
+          <%= link_to "Instructors", '/instructors#index' %><br>
+          <br>
+          <%= link_to "About", '/landing_page/about' %>
+        </div>
       </div>
 
     <div id="toggleButton" style="position: absolute; top: 20px; left: 20px">
-      <button class="w3-button w3-transparent w3-xxlarge" onclick="w3_open()">☰</button>
+      <button class="w3-button w3-transparent w3-xxlarge menuButton" onclick="w3_open()">☰</button>
     </div>
 
     <div style="margin: 85px 30px">

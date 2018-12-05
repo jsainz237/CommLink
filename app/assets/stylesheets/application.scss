@@ -154,3 +154,49 @@ h4{
   align-content: center;
   text-align: center;
 }
+
+.user-options {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  a {
+    padding: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #4CAF50;
+    background: none;
+  }
+
+  span {
+
+    a {
+      padding: 0;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #4CAF50;
+      background: none;
+    }
+  }
+}
+
+.mySidebar {
+  div {
+    padding-left: 20px;
+    padding-top: 20px;
+
+    button {
+      padding: 0!important;
+    }
+  }
+}
+
+.menuButton:hover {
+  background: none!important;
+  color: #4CAF50!important;
+}
