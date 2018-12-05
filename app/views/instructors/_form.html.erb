@@ -42,11 +42,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :imageTitle %>
-    <%= form.text_field :imageTitle %>
-  </div>
-
-  <div class="field">
      <%= form.file_field :image %>
      <% if @instructor.image? %>
       <%= image_tag @instructor.image.url, class: "instructor-show" %>
