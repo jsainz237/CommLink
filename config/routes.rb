@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'landing_page#index'
   get 'landing_page/favorites'
+  get 'landing_page/about'
   resources :instructors
   resources :courses do
     resource :ratings, except:[:index], controller: 'courses/ratings'
