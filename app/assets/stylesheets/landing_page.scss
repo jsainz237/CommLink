@@ -19,7 +19,6 @@ mark.white{
 }
 
 #landingPageContainer {
-  margin: 10%;
   align-content: center;
 }
 
@@ -63,32 +62,38 @@ mark.green{
 }
 
 /* Button */
-.button{
-  position: absolute;
+.container_button > button{
   background: #4CAF50;
   border: none;
   width: 150px;
   height: 46px;
+  margin: 30px;
+  padding: 10px;
   cursor: pointer;
   border-radius: 10px;
   font-family: Source Sans Pro;
   font-size: 24px;
-  color: white;
   text-decoration: none;
-  display: block;  
+  display: inline-block;  
   letter-spacing: 0.05em;
+  color: white;
 }
-
+.container_button > button>a:hover {
+  background: transparent;
+  color: white;
+ 
+}
 .container_button {
   display: flex;
   justify-content: center;
   align-items:center;
-
+  color: white;
 }
 .container_button > div {
   width: 161px;
   height: 46px;
   margin: 10px;
+  padding: 10px;
   text-align: center;
   font-size: 24px;
   color: white;
@@ -96,4 +101,12 @@ mark.green{
   letter-spacing: 0.05em;
   font-family: Source Sans Pro;
   border-radius: 10px;
+  text-decoration: none;
+}
+.container_button > button>a:link{
+  text-decoration: none;
+  color: white;
+}
+.container_button > button > a:visited {
+    color: white;
 }

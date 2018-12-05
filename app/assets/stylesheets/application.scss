@@ -117,3 +117,32 @@ h3{
   font-size: 25px;
   color: #FFFFFF;
 }
+h4{
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+.container-signup{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+.sign-up{
+  background: rgba(0, 0, 0, 0.6);
+  width: 600px;
+  height: 400px;
+  align-content: center;
+  text-align: center;
+}
+.log-in{
+  background: rgba(0, 0, 0, 0.6);
+  width: 600px;
+  height: 300px;
+  align-content: center;
+  text-align: center;
+}
