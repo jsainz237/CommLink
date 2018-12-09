@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>CommLink</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,8 +14,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="color: white"> <!--temp styling-->
-      <div class="user-options" style="position: absolute; top: 20px; right: 20px">
+  <% current_uri = request.env['PATH_INFO'] %>
+
+  <body <% if current_uri === '/' || current_uri === '/users/sign_in' || current_uri === '/users/sign_up' %>class="reducedHeight"<% else %>class="regular"<% end %>>
+    <div class="top-navbar">
+
+      <div id="toggleButton" style="margin-top: 5px">
+        <button class="w3-button w3-transparent w3-xxlarge menuButton" onclick="w3_open()">☰</button>
+      </div>
+
+      <% if current_uri != '/' && current_uri != '/users/sign_in' && current_uri != '/users/sign_up'  %>
+          <a href='/' id="home-button"><div id="logo2">
+            <mark class="white2">Comm</mark><mark class="green2">Link</mark>
+          </div></a>
+      <% end %>
+
+      <div class="user-options">
         <% if user_signed_in? %>
           <span>Signed in as <%= link_to current_user.email, current_user %> | </span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 
@@ -23,20 +39,18 @@
         <% end %>
       </div>
 
-      <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left mySidebar" style="display:none" id="mySidebar">
-        <div>
-          <button id="closeButton" onclick="w3_close()" class="w3-bar-item w3-button w3-large">Close &times;</button><br>
-          <%= link_to "Favorites", '/landing_page/favorites' %><br>
-          <%= link_to "Courses", '/courses#index' %><br>
-          <%= link_to "Instructors", '/instructors#index' %><br>
-          <br>
-          <%= link_to "About", '/landing_page/about' %>
-        </div>
-      </div>
-
-    <div id="toggleButton" style="position: absolute; top: 20px; left: 20px">
-      <button class="w3-button w3-transparent w3-xxlarge menuButton" onclick="w3_open()">☰</button>
     </div>
+
+      <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left mySidebar" style="display:none" id="mySidebar">
+
+        <button id="closeButton" onclick="w3_close()" class="w3-bar-item w3-button w3-large"><< Close</button><br>
+        <%= link_to "Favorites", '/landing_page/favorites', class: 'sidebar-item'%><br>
+        <%= link_to "Courses", '/courses#index', class: 'sidebar-item' %><br>
+        <%= link_to "Instructors", '/instructors#index', class: 'sidebar-item' %>
+        <hr style="margin: 20px 15px!important; background-color: white;">
+        <%= link_to "About", '/landing_page/about', class: 'sidebar-item about' %>
+
+      </div>
 
     <div style="margin: 85px 30px">
       <%= yield %>
@@ -51,6 +65,13 @@
             document.getElementById("mySidebar").style.display = "none";
             //document.getElementById("toggleButton").style.margin = "20px";
         }
+
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $(".top-navbar");
+                $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+            });
+        });
     </script>
   </body>
 </html>

@@ -1,17 +1,17 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div id="landingPageContainer">
-    <div id="container">
+    <div class="container">
       <div id="tagline1">
         Discover Courses. Write Reviews.
       </div>
     </div>
-    <div id="container">
+    <div class="container">
       <div id="logo">
         <mark class="white">Comm</mark><mark class="green">Link</mark>
       </div>
     </div>
-    <div id="container">
+    <div class="container">
       <div id="tagline2">
         Enhancing the UNT Tech Comm Experience.
       </div>
@@ -22,30 +22,38 @@
    <h2>
      <mark class="white">Sign</mark> <mark class="green">Up</mark></h2>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :email, style: "margin-bottom: -10px; margin-top: 20px; font-size: 16px;"%><br />
+      <%= f.email_field :email, class: "form-control", placeholder: "enter email", autofocus: true, autocomplete: "email", style: "width: 50%; margin: auto" %>
     </div>
     <h4>
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password, style: "margin-bottom: -5px; margin-top: 20px; font-size: 16px;"%>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em style="font-size: 16px;">(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, class: "form-control", placeholder: "enter password", style: "width: 50%; margin: auto", autocomplete: "new-password" %>
     </div>
   
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :password_confirmation, style: "margin-bottom: -16px; margin-top: 20px; font-size: 16px;" %><br />
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "re-enter password", style: "width: 50%; margin: auto", autocomplete: "new-password" %>
     </div>
    </h4>
-    <div class="actions">
-    
-       <%= f.submit "Create Account" %>
-     
-    </div>
-   </div>
+      <%= f.submit "Create Account", class: "btn btn-success", id: "myButton" %><br />
+
+      <div style="display: flex; justify-content: space-between; width: 40%; margin: auto; vertical-align: middle; line-height: 50px">
+        <hr style="width: 45%; background-color: white;">
+        <p style="margin: 5px 0 0 0;">or</p>
+        <hr style="width: 45%; background-color: white;">
+      </div>
+
+
+      <div class="links">
+        <%= render "devise/shared/links" %>
+      </div>
+
+  </div>
 </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+

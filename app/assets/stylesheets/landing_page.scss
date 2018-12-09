@@ -9,10 +9,9 @@
 //   background-repeat: repeat;
 // }
 /* Title */
-body {
-  background-image: linear-gradient(to right top, #363535, #3b3a3a, #3f3e3f, #444344, #484849, #474747, #454546, #444444, #3c3c3c, #343434, #2c2c2c, #252525);
-}
+
 mark.white{
+  padding: 0;
   color: white;
   background:none;
 }
@@ -22,6 +21,7 @@ mark.white{
 }
 
 mark.green{
+  padding: 0;
   color:#4CAF50;
   background: none;
 }
