@@ -31,14 +31,13 @@
                 <p style="font-size: 18px; margin: 0"><%= instructor.availability %></p>
               </div>
             </div>
-
-<!--            <p><%#= instructor.availability %></p>-->
-
-            <% if user_signed_in? && current_user.try(:admin) %>
-              <p><%= link_to 'Edit', edit_instructor_path(instructor) %>
-                <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-            <% end %>
           </div>
+
+          <% if user_signed_in? && current_user.try(:admin) %>
+            <p><%= link_to 'Edit', edit_instructor_path(instructor) %>
+              <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% end %>
+
         <% end %>
       </div>
     </div>
