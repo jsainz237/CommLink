@@ -1,3 +1,5 @@
+<% @arr = ['Web Development', 'Writing', 'hello'] %>
+
 <%= form_with(model: course, local: true) do |form| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
@@ -25,6 +27,17 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
+
+  <div class="field">
+    <%= form.label :shortDesc %>
+    <%= form.text_area :shortDesc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categoryName, "Category" %>
+    <%= form.collection_select :categoryName, @arr, :to_s, :to_s, prompt_text: "select one" %>
+  </div>
+
 
   <%= hidden_field_tag "course[instructor_ids][]", nil %>
     <% Instructor.all.each do |instructor| %>

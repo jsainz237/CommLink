@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_031412) do
+ActiveRecord::Schema.define(version: 2018_12_11_025948) do
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -18,6 +24,9 @@ ActiveRecord::Schema.define(version: 2018_12_05_031412) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "shortDesc"
+    t.integer "category_id"
+    t.string "categoryName"
   end
 
   create_table "courses_instructors", force: :cascade do |t|
@@ -41,6 +50,9 @@ ActiveRecord::Schema.define(version: 2018_12_05_031412) do
     t.string "imageTitle"
     t.text "specialty"
     t.string "image"
+    t.string "contact"
+    t.text "skills"
+    t.string "website"
   end
 
   create_table "ratings", force: :cascade do |t|

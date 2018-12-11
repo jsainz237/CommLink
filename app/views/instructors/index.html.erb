@@ -2,27 +2,48 @@
 
 <h1>Instructors</h1>
 
-<div class="flex-container">    
+<div class="row">
    <% @instructors.each do |instructor| %>
+    <div class="col-sm-12 col-xl-6">
       <div class="flex-item">
-        <%=image_tag instructor.image.url, class: "instructor-show" if instructor.image? %>
-        <div class="info-container">
-          <h1><%= instructor.name %></h1>
-          <p><%= instructor.title %></p>
-          <p><%= instructor.education %></p>
-          <p><%= instructor.specialty %></p>
-          <p><%= instructor.office %></p>
-          <p><%= instructor.availability %></p>
+        <%= link_to instructor, class: "link-container" do %>
+          <%= image_tag instructor.image.url, class: "instructor-show2" if instructor.image? %>
+          <div class="info-container">
+            <h1 style="margin: 0"><%= instructor.name %>, <%= instructor.degree %></h1>
+            <p style="margin: 0 0 20px 0; font-size: 25px"><%= instructor.title %></p>
 
-          <p><%= link_to 'Show', instructor %></p>
-        <% if user_signed_in? && current_user.try(:admin) %>
-          <p><%= link_to 'Edit', edit_instructor_path(instructor) %>
-            <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            <p style="margin: 0; font-size: 16px; color: gray">Education:</p>
+            <p style="margin: 0 0 20px 0; font-size: 18px"><%= instructor.education %></p>
+
+            <div style="display: flex; margin: 0 0 20px 0; justify-content: flex-start">
+              <div>
+                <p style="margin: 0; font-size: 16px; color: gray">Specialty:</p>
+                <p style="font-size: 18px; margin: 0;"><%= instructor.specialty %></p>
+              </div>
+
+              <div style="margin: 0 0 0 50px">
+                <p style="margin: 0; font-size: 16px; color: gray">Office:</p>
+                <p style="font-size: 18px; margin: 0"><%= instructor.office %></p>
+              </div>
+
+              <div style="margin: 0 0 0 50px">
+                <p style="margin: 0; font-size: 16px; color: gray">Availability:</p>
+                <p style="font-size: 18px; margin: 0"><%= instructor.availability %></p>
+              </div>
+            </div>
+
+<!--            <p><%#= instructor.availability %></p>-->
+
+            <% if user_signed_in? && current_user.try(:admin) %>
+              <p><%= link_to 'Edit', edit_instructor_path(instructor) %>
+                <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            <% end %>
+          </div>
         <% end %>
+      </div>
     </div>
-  </div>
-      <% end %>
-  </div>
+  <% end %>
+</div>
 
 <br>
 

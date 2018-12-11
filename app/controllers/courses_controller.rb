@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    @course = Course.new @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   # GET /courses/1/edit
@@ -48,7 +48,6 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
@@ -92,6 +91,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :rating, :number, :description, {instructor_ids: []})
+      params.require(:course).permit(:name, :rating, :number, :description, :shortDesc, :categoryName, :Category, {instructor_ids: []})
     end
 end

@@ -21,7 +21,7 @@
       <td><%= course.number %></td>
       <td><%= course.description %></td>
       <td></td>
-      <td><%= course.ratings.average(:score).round(1) %></td>
+<!--      <td><%#= course.ratings.average(:score).round(1) %></td>-->
       <td>
         <ul>
           <% for @instructor in course.instructors %>

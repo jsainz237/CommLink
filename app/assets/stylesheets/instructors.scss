@@ -56,20 +56,20 @@ h1{
 }
 
 .flex-item {
-  height: 20%;
-  width: 45%;
+  display: flex;
+  min-height: 290px;
+  //width: 45%;
   background: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
-  margin: 20px;
-  padding: 10px;
+  margin: 10px;
 }
         
 .info-container{
-  display: inline-block;
   vertical-align: top;
-  padding: 0 0 0 5px;
+  padding: 0 15px 0 15px;
   box-sizing: border-box;
-        }
+}
+
 .info-container h1{
   font-family: Source Sans Pro;
   font-style: normal;
@@ -89,7 +89,26 @@ h1{
   margin-left: 10px;
 }
 
-.instructor-show {
-  width: 200px!important;
-  height: auto!important;
+@media screen and (max-width: 630px) {
+  .instructor-show2 {
+    display: none!important;
+  }
+}
+
+.instructor-show2 {
+  border-radius: 5px;
+  width: 150px!important;
+  height: 270px!important;
+  object-fit: cover;
+  margin: 10px 10px!important;
+}
+
+.link-container {
+  display: flex;
+}
+
+.link-container:hover {
+  display: flex;
+  background: none;
+  text-decoration: none;
 }

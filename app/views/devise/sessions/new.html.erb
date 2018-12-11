@@ -17,32 +17,41 @@
 </div>
 <div class="container-signup">
   <div class="log-in">
-   <h2>
-<mark class="white">Log</mark> <mark class="green">In</mark></h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
+    <h2>
+      <mark class="white">Log</mark> <mark class="green">In</mark>
+    </h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :email, style: "margin-bottom: -10px; margin-top: 20px; font-size: 16px;"%><br />
+      <%= f.email_field :email, class: "form-control", placeholder: "email", autofocus: true, autocomplete: "email", style: "width: 50%; margin: auto" %>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    <div class="field">
+      <%= f.label :password, style: "margin-bottom: -10px; margin-top: 20px; font-size: 16px;"%><br />
+      <%= f.password_field :password, class: "form-control", placeholder: "password", style: "width: 50%; margin: auto", autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div style="display: inline-grid; justify-content: center;">
+        <%= f.check_box :remember_me, class: "form-check-input" %>
+        <%= f.label :remember_me, class: "form-check-label", style: "width: 100px!important; margin-bottom: 13px;" %>
       </div>
-   </div>
-</div>
-<% end %>
+    <% end -%>
 
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit "Log in", class: "btn btn-success myButton", style: "margin-bottom: -10px" %>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; width: 40%; margin: auto; vertical-align: middle; line-height: 50px">
+      <hr style="width: 45%; background-color: white;">
+      <p style="margin: 5px 0 0 0;">or</p>
+      <hr style="width: 45%; background-color: white;">
+    </div>
+
+    <div class="links">
+      <%= render "devise/shared/links" %>
+    </div>
+
+    <% end %>
+  </div>
+</div>

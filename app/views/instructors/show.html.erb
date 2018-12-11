@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <strong>Degree:</strong>
+  <%= @instructor.degree %>
+</p>
+
+<p>
   <strong>Specialty:</strong>
   <%= @instructor.specialty %>
 </p>
@@ -33,6 +38,21 @@
 <p>
   <strong>Availability:</strong>
   <%= @instructor.availability %>
+</p>
+
+<p>
+  <strong>Contact Info:</strong>
+  <%= @instructor.contact %>
+</p>
+
+<p>
+  <strong>Specialties:</strong>
+  <%= @instructor.skills %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= link_to "Website", @instructor.website %>
 </p>
 
 <% if @instructor.image? %>

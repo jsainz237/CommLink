@@ -1,35 +1,84 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
-<div class="container-fluid">
-<div class="row">
+  <div class="row">
     <% @courses.each do |course| %>
-  <div class="col-sm-12">
-       <div class="course-list-box">
-       <h1><%= course.number %> - <%= course.name %></h1>
-        <p><%= course.description %></p>
-        <% if course.ratings.size != 0 %>
-          <p><%= course.ratings.average(:score).round(1) %></p>
-        <% else %>
-           <p>No Reviews Yet</p>
+      <div class="col-sm-12 col-xl-6 <%= course.categoryName %>">
+        <%= link_to course, style: "text-decoration:none" do%>
+
+          <div class="course-list-box">
+
+            <div class="course-info-container">
+              <h1 style="margin-bottom: 0"><%= course.name %></h1>
+              <h1 style="font-size: 25px"><%= course.number %></h1>
+              <p style="font-size: 19px"><%= course.shortDesc %></p>
+<!--              <ul style="list-style: none; padding: 0 0 0 10px; margin: 0;">-->
+                <%# for @instructor in course.instructors %>
+<!--                    <li style="display: table-cell; color: white;">| <%#= @instructor.name %> |</li>-->
+                <%# end  %>
+<!--              </ul>-->
+              <h1 style="margin-bottom: 0; font-size: 16px; color: gray">Category:</h1>
+              <p style="font-size: 16px"><%= course.categoryName %></p>
+
+              <% if user_signed_in? && current_user.try(:admin) %>
+                <div style="display: inline-flex">
+                  <p><%= link_to 'Edit', edit_course_path(course) %></p>
+                  <p><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="circle-container">
+              <svg height="135" width="135">
+                <circle cx="73" cy="68" r="60" stroke="gold" stroke-width="1" fill="none" />
+                Sorry, your browser does not support inline SVG.
+              </svg>
+            </div>
+
+            <div class="star-container">
+              <% if user_signed_in? and current_user.voted_for? course %>
+                <%= link_to like_course_path(course), method: :put do %>
+                  <svg height="25" width="23" class="star favorite" data-rating="1">
+                    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"/>
+                  </svg>
+                <% end %>
+              <% else %>
+                <%= link_to like_course_path(course), method: :put do %>
+                  <svg height="25" width="23" class="star" data-rating="1">
+                    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"/>
+                  </svg>
+                <% end %>
+              <% end %>
+              <p style="font-size: 15px; margin: 0; color: #d3d3d3">Favorite</p>
+            </div>
+
+            <div class="rating-container">
+              <% if course.ratings.size != 0 %>
+                <p><%= course.ratings.average(:score).round(1) %></p>
+              <% else %>
+                <p>n/a</p>
+              <% end %>
+              <p class="info">out of 5</p>
+            </div>
+
+          </div>
+
         <% end %>
-        <p> <% for @instructor in course.instructors %>
-            <%= @instructor.name %>
-          <% end  %> </p>
-        <div style="display: inline-flex">
-          <p><%= link_to 'Show', course, class: "show-link"%></p>
-          <% if user_signed_in? && current_user.try(:admin) %>
-            <p><%= link_to 'Edit', edit_course_path(course) %></p>
-            <p><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-          <% end %>
-        </div>
+
+      </div>
+
+    <% end %>
+
   </div>
-  </div>
-   <% end %>
-  </div>
-  </div>
+
 <br>
 
 <% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to image_tag("add-icon.png"), new_course_path %>
 <% end %>
+
+<script>
+  function favorite(e) {
+      e.target.addClass('favorite');
+  }
+</script>
