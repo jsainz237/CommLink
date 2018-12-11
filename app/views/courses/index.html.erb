@@ -3,7 +3,7 @@
 <h1>Courses</h1>
   <div class="row">
     <% @courses.each do |course| %>
-      <div class="col-sm-12 col-xl-6 <%= course.categoryName %>">
+      <div class="col-sm-12 col-xl-6">
         <%= link_to course, style: "text-decoration:none" do%>
 
           <div class="course-list-box">
