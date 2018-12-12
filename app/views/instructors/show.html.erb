@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @instructor.name %>
-</p>
+<h1 style="font-size: 72px;"><%= @instructor.name %></h1>
 
-<p>
-  <strong>Degree:</strong>
-  <%= @instructor.degree %>
-</p>
+<div style="display: flex; background-color: black; border-radius: 10px">
+
+  <%= image_tag @instructor.image.url, class: "instructor-show3" if @instructor.image? %>
+
+  <div>
+    <h1 style="color: #4CAF50; font-size: 36px  q [ipy\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\u];"><%= @instructor.title %></h1>
+  </div>
+</div>
 
 <p>
   <strong>Title:</strong>
