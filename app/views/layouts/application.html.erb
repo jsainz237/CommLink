@@ -31,7 +31,7 @@
 
       <div class="user-options">
         <% if user_signed_in? %>
-          <span><%= current_user.email %> | </span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+          <a href="#" id="signInTag" onclick="counter()"><%= current_user.email %></a> | <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 
         <% else %>
           <%= link_to "Sign In", new_user_session_path %>
@@ -57,6 +57,9 @@
     </div>
 
     <script>
+
+        let count = 0;
+
         function w3_open() {
             document.getElementById("mySidebar").style.display = "block";
             //document.getElementById("toggleButton").style.margin = "0";
@@ -72,6 +75,19 @@
                 $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
             });
         });
+
+        function counter() {
+            if(count === 5) {
+              $('#signInTag').attr("href", "https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif");
+            }
+            else {
+                count++;
+            }
+
+            //console.log(name);
+
+            //name.prop("href", <% current_user %>)
+        }
     </script>
   </body>
 </html>

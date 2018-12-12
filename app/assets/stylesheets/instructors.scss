@@ -119,5 +119,17 @@ h1{
   width: 120px!important;
   height: 180px!important;
   object-fit: cover;
-  margin: 10px 10px!important;
+  margin: 10px 20px 10px 10px!important;
+}
+
+.instructor-weblink {
+  color: #007dff!important;
+  text-decoration: underline;
+  font-size: 18px;
+  background: none;
+}
+
+.instructor-weblink:hover {
+  color: #6abbff!important;
+  background: none;
 }

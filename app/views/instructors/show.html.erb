@@ -6,59 +6,36 @@
 
   <%= image_tag @instructor.image.url, class: "instructor-show3" if @instructor.image? %>
 
-  <div>
-    <h1 style="color: #4CAF50; font-size: 36px  q [ipy\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\u];"><%= @instructor.title %></h1>
+  <div style="margin: 10px 0px;">
+    <h1 style="color: #4CAF50; font-size: 30px;"><%= @instructor.title %></h1>
+
+    <p style="font-size: 20px; color: #d8d8d8;"><%= @instructor.contact %></p>
+
+    <p style="font-size: 18px; color: #4CAF50; display: inline-block; letter-spacing: 1px">Office: </p>
+    <p style="font-size: 18px; color: #d8d8d8; display: inline-block"><%= @instructor.office %></p><br>
+
+    <p style="font-size: 18px; color: #4CAF50; display: inline-block; letter-spacing: 1px">Availability:</p>
+    <p style="font-size: 18px; color: #d8d8d8; display: inline-block"><%= @instructor.availability %></p><br>
+
+    <p style="font-size: 18px; color: #d8d8d8; display: inline-block;">UNT Faculty Profile:</p>
+    <%= link_to @instructor.name, @instructor.website, class: "instructor-weblink" %>
   </div>
+
 </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @instructor.title %>
-</p>
+<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">EDUCATION</h2>
+<div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
 
-<p>
-  <strong>Education:</strong>
-  <%= @instructor.education %>
-</p>
+  <h3 style="font-size: 20px; padding: 10px"><%= @instructor.degree %>, <%= @instructor.education %></h3>
 
-<p>
-  <strong>Degree:</strong>
-  <%= @instructor.degree %>
-</p>
+</div>
 
-<p>
-  <strong>Specialty:</strong>
-  <%= @instructor.specialty %>
-</p>
+<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">SPECIALTIES</h2>
+<div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
 
-<p>
-  <strong>Office:</strong>
-  <%= @instructor.office %>
-</p>
+  <h3 style="font-size: 20px; padding: 10px"><%= @instructor.skills %></h3>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @instructor.availability %>
-</p>
-
-<p>
-  <strong>Contact Info:</strong>
-  <%= @instructor.contact %>
-</p>
-
-<p>
-  <strong>Specialties:</strong>
-  <%= @instructor.skills %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= link_to "Website", @instructor.website %>
-</p>
-
-<% if @instructor.image? %>
-<%= image_tag @instructor.image.url, class: "instructor-show" %>
-<% end %>
+</div>
 
 <% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_instructor_path(@instructor) %> |

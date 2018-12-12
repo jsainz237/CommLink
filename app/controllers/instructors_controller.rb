@@ -70,6 +70,6 @@ class InstructorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
       params.require(:instructor).permit(:name, :degree, :title, :remove_image, :image, :office, :website, :degree,
-                                         :contact, :skills, :availability, :education, :specialty, {course_ids: []})
+                                         :contact, :skills, :availability, :education, :specialty, :specializations, {course_ids: []})
     end
 end

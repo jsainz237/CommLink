@@ -24,7 +24,7 @@ html {
 }
 
 body.regular {
-  height: 100%;
+  height: auto;
   width: 100%;
   color: white;
   background-image: linear-gradient(to right top, #363535, #3b3a3a, #3f3e3f, #444344, #484849, #474747, #454546, #444444, #3c3c3c, #343434, #2c2c2c, #252525);
@@ -208,6 +208,16 @@ h4{
     background: none;
   }
 
+  #signInTag {
+    color: white!important;
+    cursor: default;
+  }
+
+  #signInTag:hover {
+    color: white!important;
+    cursor: default;
+  }
+
   span {
 
     a {
@@ -367,5 +377,15 @@ mark.white2 {
     color: white;
     text-decoration: underline;
     background: none;
+  }
+
+  #signInTag {
+    text-decoration: none;
+    color: white!important;
+  }
+
+  #signInTag:hover {
+    text-decoration: none;
+    color: white!important;
   }
 }
