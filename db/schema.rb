@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_025948) do
+ActiveRecord::Schema.define(version: 2018_12_12_022015) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_025948) do
     t.text "shortDesc"
     t.integer "category_id"
     t.string "categoryName"
+    t.text "shorty"
   end
 
   create_table "courses_instructors", force: :cascade do |t|
