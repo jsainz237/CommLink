@@ -17,17 +17,20 @@
   <% current_uri = request.env['PATH_INFO'] %>
 
   <body <% if current_uri === '/' || current_uri === '/users/sign_in' || current_uri === '/users/sign_up' %>class="reducedHeight"<% else %>class="regular"<% end %>>
+
+    <% if current_uri != '/' && current_uri != '/users/sign_in' && current_uri != '/users/sign_up'  %>
+      <div style="text-align: center; width: 30%; margin: auto; position: fixed; top: 0; left: 35%; z-index: 400;" id="home-logo-container">
+        <div id="logo2">
+          <mark class="white2">Comm</mark><mark class="green2">Link</mark>
+        </div>
+      </div>
+    <% end %>
+
     <div class="top-navbar">
 
       <div id="toggleButton" style="margin-top: 5px">
         <button class="w3-button w3-transparent w3-xxlarge menuButton" onclick="w3_open()">☰</button>
       </div>
-
-      <% if current_uri != '/' && current_uri != '/users/sign_in' && current_uri != '/users/sign_up'  %>
-          <a href='/' id="home-button"><div id="logo2">
-            <mark class="white2">Comm</mark><mark class="green2">Link</mark>
-          </div></a>
-      <% end %>
 
       <div class="user-options">
         <% if user_signed_in? %>
