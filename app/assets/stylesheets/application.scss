@@ -343,15 +343,6 @@ mark.white2 {
   transition: background-color 0.3s ease;
 }
 
-#home-button {
-  text-decoration: none;
-}
-
-#home-button:hover {
-  text-decoration: underline;
-  background: none;
-}
-
 .myButton {
   margin-bottom: 5px;
   background: $myGreen!important;
@@ -387,5 +378,17 @@ mark.white2 {
   #signInTag:hover {
     text-decoration: none;
     color: white!important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #home-logo-container {
+    display: block;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 800px){
+  #home-logo-container {
+    display: none;
   }
 }

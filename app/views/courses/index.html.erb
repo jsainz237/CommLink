@@ -37,7 +37,7 @@
 
             <div class="star-container">
               <% if user_signed_in? and current_user.voted_for? course %>
-                <%= link_to like_course_path(course), method: :put do %>
+                <%= link_to dislike_course_path(course), method: :put do %>
                   <svg height="25" width="23" class="star favorite" data-rating="1">
                     <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"/>
                   </svg>

@@ -1,27 +1,36 @@
 <%= form_for [@course, @rating] do |form| %>
- 
 
-  <div class="field">
-    <%= form.label :score %>
-    <%= form.number_field :score, min: 1, max: 5 %>
-  </div>
+  <div style="display: flex; justify-content: center">
 
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-  </div>
+    <div style="height: auto; width: 330px">
 
-  <div class="field">
-    <%= form.label :comment2 %>
-    <%= form.text_area :comment2 %>
-  </div>
+      <h1 style="font-size: 40px">Leave a Review</h1>
 
-  <div class="field">
-    <%= form.label :comment3 %>
-    <%= form.text_area :comment3 %>
-  </div>
+      <div class="form-group">
+        <p style="margin: 0 0 5px 0;">Did you enjoy the class? Why or why not?</p>
+        <%= form.text_area :comment, class: "form-control", style: "height: 100px!important" %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="form-group">
+        <p style="margin: 0 0 5px 0;">Do you think this class furthered you career path?</p>
+        <%= form.text_area :comment2, class: "form-control", style: "height: 100px!important" %>
+      </div>
+
+      <div class="form-group">
+        <p style="margin: 0 0 5px 0;">Was this class worth your time and money?</p>
+        <%= form.text_area :comment3, class: "form-control", style: "height: 100px!important" %>
+      </div>
+
+      <div class="form-group" style="margin: 20px 0!important;">
+        <p style="margin: 0 0 5px 0;">Enter your overall score for the class:</p>
+        <%= form.number_field :score, min: 1, max: 5, class: "form-control" %>
+      </div>
+
+      <div class="actions" style="text-align: center!important;">
+        <%= form.submit "Submit", class: "btn btn-success"%>
+      </div>
+
+    </div>
+
   </div>
 <% end %>

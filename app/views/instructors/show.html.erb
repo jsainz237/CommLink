@@ -1,43 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1 style="font-size: 72px;"><%= @instructor.name %></h1>
+<div style="width: 85%; margin: auto;">
 
-<div style="display: flex; background-color: black; border-radius: 10px">
+  <h1 style="font-size: 72px;"><%= @instructor.name %></h1>
+  <div style="display: flex; background-color: black; border-radius: 10px">
 
-  <%= image_tag @instructor.image.url, class: "instructor-show3" if @instructor.image? %>
+    <%= image_tag @instructor.image.url, class: "instructor-show3" if @instructor.image? %>
 
-  <div style="margin: 10px 0px;">
-    <h1 style="color: #4CAF50; font-size: 30px;"><%= @instructor.title %></h1>
+    <div style="margin: 10px 0px;">
+      <h1 style="color: #4CAF50; font-size: 30px;"><%= @instructor.title %></h1>
 
-    <p style="font-size: 20px; color: #d8d8d8;"><%= @instructor.contact %></p>
+      <p style="font-size: 20px; color: #d8d8d8;"><%= @instructor.contact %></p>
 
-    <p style="font-size: 18px; color: #4CAF50; display: inline-block; letter-spacing: 1px">Office: </p>
-    <p style="font-size: 18px; color: #d8d8d8; display: inline-block"><%= @instructor.office %></p><br>
+      <p style="font-size: 18px; color: #4CAF50; display: inline-block; letter-spacing: 1px">Office: </p>
+      <p style="font-size: 18px; color: #d8d8d8; display: inline-block"><%= @instructor.office %></p><br>
 
-    <p style="font-size: 18px; color: #4CAF50; display: inline-block; letter-spacing: 1px">Availability:</p>
-    <p style="font-size: 18px; color: #d8d8d8; display: inline-block"><%= @instructor.availability %></p><br>
+      <p style="font-size: 18px; color: #4CAF50; display: inline-block; letter-spacing: 1px">Availability:</p>
+      <p style="font-size: 18px; color: #d8d8d8; display: inline-block"><%= @instructor.availability %></p><br>
 
-    <p style="font-size: 18px; color: #d8d8d8; display: inline-block;">UNT Faculty Profile:</p>
-    <%= link_to @instructor.name, @instructor.website, class: "instructor-weblink" %>
+      <p style="font-size: 18px; color: #d8d8d8; display: inline-block;">UNT Faculty Profile:</p>
+      <%= link_to @instructor.name, @instructor.website, class: "instructor-weblink" %>
+    </div>
+
   </div>
 
-</div>
+  <h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">EDUCATION</h2>
+  <div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
 
-<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">EDUCATION</h2>
-<div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
+    <h3 style="font-size: 20px; padding: 10px"><%= @instructor.degree %>, <%= @instructor.education %></h3>
 
-  <h3 style="font-size: 20px; padding: 10px"><%= @instructor.degree %>, <%= @instructor.education %></h3>
+  </div>
 
-</div>
+  <h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">SPECIALTIES</h2>
+  <div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
 
-<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">SPECIALTIES</h2>
-<div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
+    <h3 style="font-size: 20px; padding: 10px"><%= @instructor.skills %></h3>
 
-  <h3 style="font-size: 20px; padding: 10px"><%= @instructor.skills %></h3>
-
+  </div>
 </div>
 
 <% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <% end %>
-<%= link_to 'Back', instructors_path %>
+
