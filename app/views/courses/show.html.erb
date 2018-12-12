@@ -1,73 +1,67 @@
-<%= link_to 'Back', courses_path %>
 <p id="notice"><%= notice %></p>
   
-<h1 style="font-size: 72px;"> <%= @course.name %> </h1>
+<h1 style="font-size: 72px; margin: 0 0 -20px 0;"> <%= @course.name %> </h1>
  
-<h1 style="font-size: 72px;"><%= @course.number %></h1>
+<h1 style="font-size: 40px; margin: 0;"><%= @course.number %></h1>
+
+<% if @course.ratings.size != 0 %>
+  <h1 style="font-size: 40px; margin: 0 0 -15px 0; color: gold">AVG SCORE: <%= @course.ratings.average(:score).round(1) %></h1>
+<% end %>
   
 
-<h2 style="font-size: 40px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">Course Description</h2> 
+<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin: 25px 0 0 10px">DESCRIPTION</h2>
 <div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px">
-
-    <h3 style="font-size: 20px; padding: 10px; color: #d8d8d8;"><%= @course.description %></h3>
+    <h3 style="font-size: 20px; padding: 10px; margin: 0; color: #d8d8d8;"><%= @course.description %></h3>
 </div>
-<!-- How to get the rating system to appear?
-<div class="row"> 
-    <div class="col-sm-12 col-xl-6"> 
-      <div class="course-list-box">
-        <div class="course-info-container">
-          <h3 style="font-size: 20px; padding: 10px; color: #d8d8d8;"><%= @course.description %></h3>
-            <div class="circle-container">
-              <svg height="135" width="135">
-                <circle cx="73" cy="68" r="60" stroke="gold" stroke-width="1" fill="none" />
-                Sorry, your browser does not support inline SVG.
-              </svg>
-            </div>
-            
-        </div>
-      </div>
-    </div>
-  </div>
-  -->          
 
-<h2 style="font-size: 40px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">Instructors</h2>
-<div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px">
+<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin: 25px 0 0 10px">INSTRUCTORS</h2>
+<div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px; padding: 10px">
           <% for @instructor in @course.instructors %>
-          <p style="font-size: 18px; color: #d8d8d8; display: inline-block; padding: 10px;"><%= @instructor.name %></p>
+          <p style="font-size: 18px; color: #d8d8d8; display: inline-block; margin: 0; padding: 5px;">|<%= @instructor.name %>|</p>
            <% end %>
 </div>
 
-<h2 style="font-size: 40px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">Category</h2> 
+<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin: 25px 0 0 10px;">CATEGORY</h2>
 <div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px">
-
-    <h3 style="font-size: 20px; padding: 10px; color: #d8d8d8;"><%= @course.categoryName %></h3>
+    <h3 style="font-size: 20px; padding: 10px; margin: 0; color: #d8d8d8;"><%= @course.categoryName %></h3>
 </div>
 
-<h2 style="font-size: 40px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">Student Reviews</h2>
+<div style="display: flex; justify-content: flex-start">
 
+  <h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin: 25px 10px -15px 10px;">REVIEWS</h2>
 
-<% if @course.ratings.size === 0 %> 
-<div style="background: rgba(0, 0, 0, 0.75); border-radius: 10px"> 
-  <h2 style="font-size: 25px; padding: 10px;">No ratings yet</h2>
-  <h3 style="font-size: 25px; padding: 10px;">Be the first to leave a review</h3>
+  <% if user_signed_in? %>
+    <%= link_to '+', new_course_ratings_path(@course), class: "plus-button" %>
+  <% else %>
+    <%= link_to '+', new_user_session_path, class: "plus-button" %>
+  <% end %>
+
 </div>
+
+<% if @course.ratings.size != 0 %>
+  <% @course.ratings.each do |rating| %>
+    <div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px; margin: 15px 0;">
+      <div style="margin: 10px">
+        <p style="font-size: 20px; margin: 0 0 20px 0; color: #d8d8d8;">Score: <%= rating.score.round(1) %></p>
+
+        <p style="font-size: 16px; margin: 10px 0 -15px 0; color: gray;">What I learned:</p><br>
+        <p style="font-size: 18px; margin: 0 0 30px 0; color: #d8d8d8;"><%= rating.comment %></p>
+
+        <p style="font-size: 16px; margin: 10px 0 -15px 0; color: gray;">What challenged me:</p><br>
+        <p style="font-size: 18px; margin: 0 0 30px 0; color: #d8d8d8;"><%= rating.comment2 %></p>
+
+        <p style="font-size: 16px; margin: 10px 0 -15px 0; color: gray;">How I grew:</p><br>
+        <p style="font-size: 18px; margin: 0 0 30px 0; color: #d8d8d8;"><%= rating.comment3 %></p>
+      </div>
+    </div>
+  <% end %>
 <% else %>
-  <h2>Average Rating: <%= @course.ratings.average(:score).round(1) %></h2>
-<% end %>
-<% @course.ratings.each do |rating| %>
-  <h3>Score: <%= rating.score %></h3>
-<% end %>
 
-    <% if user_signed_in? %>
-<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px;"><%= link_to 'Add Review', new_course_ratings_path(@course) %></h2>
-    <% else %>
-      <p>
-        To leave a review, please <%= link_to 'sign in', new_user_session_path %> or
-        <%= link_to 'create an account', new_user_registration_path %>.
-      </p>
-    <% end %>
+  <div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px; margin: 20px 0 0 0;">
+    <h3 style="font-size: 20px; padding: 10px; margin: 0; color: #d8d8d8;">Be the first to leave a review</h3>
+  </div>
 
-    <br>
+<% end %>
 
 <% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_course_path(@course) %> 

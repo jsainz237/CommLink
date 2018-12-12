@@ -75,6 +75,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:score, :comment, :course_id, {course_ids: []})
+      params.require(:rating).permit(:score, :comment, :comment2, :comment3, :course_id, {course_ids: []})
     end
 end
