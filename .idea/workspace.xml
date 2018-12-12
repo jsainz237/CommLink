@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99085e33-eb89-4b9c-a07c-40d49ba8c5e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/CommLink.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CommLink.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/courses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/courses.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/courses/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/courses/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/courses/ratings/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/courses/ratings/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/courses/ratings/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/courses/ratings/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/instructors/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/instructors/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/landing_page/favorites.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/landing_page/favorites.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/landing_page/about.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/landing_page/about.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -44,7 +39,7 @@
         <counts>
           <entry key="Gemfile" value="8" />
           <entry key="css" value="1" />
-          <entry key="erb" value="128" />
+          <entry key="erb" value="130" />
           <entry key="gitignore" value="1" />
           <entry key="jbuilder" value="4" />
           <entry key="jpg" value="2" />
@@ -60,7 +55,7 @@
           <entry key="CSS" value="1" />
           <entry key="Image" value="4" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="RHTML" value="128" />
+          <entry key="RHTML" value="130" />
           <entry key="Ruby" value="115" />
           <entry key="SCSS" value="22" />
           <entry key="YAML" value="1" />
@@ -69,7 +64,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Gemfile" value="119" />
-          <entry key="erb" value="12034" />
+          <entry key="erb" value="12052" />
           <entry key="gitignore" value="62" />
           <entry key="rb" value="1293" />
           <entry key="scss" value="5121" />
@@ -79,7 +74,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="62" />
-          <entry key="RHTML" value="12034" />
+          <entry key="RHTML" value="12052" />
           <entry key="Ruby" value="1412" />
           <entry key="SCSS" value="5121" />
           <entry key="YAML" value="11" />
@@ -93,6 +88,23 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/instructors/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/landing_page/about.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="n#style#0;n#ul#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1086">
@@ -101,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="393" column="1" selection-start-line="393" selection-start-column="1" selection-end-line="393" selection-end-column="1" />
+              <caret line="402" column="1" selection-start-line="402" selection-start-column="1" selection-end-line="402" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -156,7 +168,6 @@
         <option value="$PROJECT_DIR$/app/controllers/landing_page_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/landing_page/about.html.erb" />
         <option value="$PROJECT_DIR$/config/locales/secrets.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/uploaders/image_uploader.rb" />
@@ -182,9 +193,10 @@
         <option value="$PROJECT_DIR$/app/views/landing_page/favorites.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/courses_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/courses/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/instructors/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/app/views/instructors/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/landing_page/about.html.erb" />
       </list>
     </option>
   </component>
@@ -248,13 +260,6 @@
               <item name="CommLink" type="b2602c69:ProjectViewProjectNode" />
               <item name="CommLink" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CommLink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CommLink" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,7 +280,7 @@
               <item name="CommLink" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="landing_page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CommLink" type="b2602c69:ProjectViewProjectNode" />
@@ -446,12 +451,12 @@
       <workItem from="1544293527175" duration="13752000" />
       <workItem from="1544382999995" duration="5966000" />
       <workItem from="1544414560082" duration="31519000" />
-      <workItem from="1544583279893" duration="10839000" />
+      <workItem from="1544583279893" duration="11155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113455000" />
+    <option name="totallyTimeSpent" value="113771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="808" extended-state="6" />
@@ -526,13 +531,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/users_helper.rb">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/landing_page/about.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
@@ -763,30 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/instructors/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1086">
@@ -797,7 +771,20 @@
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
-          <caret line="393" column="1" selection-start-line="393" selection-start-column="1" selection-end-line="393" selection-end-column="1" />
+          <caret line="402" column="1" selection-start-line="402" selection-start-column="1" selection-end-line="402" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/instructors/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/landing_page/about.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="n#style#0;n#ul#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
