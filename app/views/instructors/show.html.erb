@@ -1,8 +1,11 @@
+<h4>
+  <%= link_to 'Back', instructors_path %>
+</h4>
 <p id="notice"><%= notice %></p>
 
 <h1 style="font-size: 72px;"><%= @instructor.name %></h1>
 
-<div style="display: flex; background-color: black; border-radius: 10px">
+<div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px">
 
   <%= image_tag @instructor.image.url, class: "instructor-show3" if @instructor.image? %>
 
@@ -23,15 +26,15 @@
 
 </div>
 
-<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">EDUCATION</h2>
-<div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
+<h2 style="font-size: 40px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">EDUCATION</h2>
+<div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px; height: auto;">
 
   <h3 style="font-size: 20px; padding: 10px"><%= @instructor.degree %>, <%= @instructor.education %></h3>
 
 </div>
 
-<h2 style="font-size: 25px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">SPECIALTIES</h2>
-<div style="display: flex; background-color: black; border-radius: 10px; height: auto;">
+<h2 style="font-size: 40px; color: #4CAF50; letter-spacing: 1px; margin-top: 25px; margin-left: 10px">SPECIALTIES</h2>
+<div style="display: flex; background: rgba(0, 0, 0, 0.75); border-radius: 10px; height: auto;">
 
   <h3 style="font-size: 20px; padding: 10px"><%= @instructor.skills %></h3>
 
@@ -40,4 +43,4 @@
 <% if user_signed_in? && current_user.try(:admin) %>
   <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <% end %>
-<%= link_to 'Back', instructors_path %>
+
